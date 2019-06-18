@@ -13,7 +13,8 @@ export const increment = count => {
   // Fill in this function
   return {
     type: INCREMENT,
-    payload: count + 1
+    payload: count + 1,
+    add: 5
   };
 };
 

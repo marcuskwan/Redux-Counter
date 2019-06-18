@@ -6,16 +6,16 @@ class Counter extends Component {
   incrementIfOdd = () => {
     // Stretch Problem: Implement an increment function that
     // only increments if the counter value is odd
-      this.props.count %2 ===1 && this.props.increment(this.props.count)
+    this.props.count % 2 === 1 && this.props.increment(this.props.count);
   };
 
   incrementAsync = () => {
     // Stretch Problem: Implement an increment function that
     // increments after waiting for one second
-      setTimeout(() => this.props.increment(this.props.count), 5000 )
+    setTimeout(() => this.props.increment(this.props.count), 5000);
   };
 
-  increment = event => {
+  handleSubmit = event => {
     event.preventDefault();
     this.props.increment(this.props.count);
   };
@@ -31,17 +31,18 @@ class Counter extends Component {
     // should decrement or increment accordingly
     return (
       <p>
+        {this.props.marcus}
         Clicked: {this.props.count} times
         <button
-          onClick={(event) => {
+          onClick={event => {
             /* Fill me in */
-            this.increment(event);
+            this.handleSubmit(event);
           }}
         >
           +
         </button>
         <button
-          onClick={(event) => {
+          onClick={event => {
             /* Fill me in */
             this.decrement(event);
           }}
@@ -50,12 +51,8 @@ class Counter extends Component {
         </button>
         {/* Uncomment these button tags if you got
                 around to implementing the extra credit functions */}
-        <button onClick={this.incrementIfOdd}>
-                    Increment if odd
-                </button>
-                <button onClick={this.incrementAsync}>
-                    Increment async
-                </button> 
+        <button onClick={this.incrementIfOdd}>Increment if odd</button>
+        <button onClick={this.incrementAsync}>Increment async</button>
       </p>
     );
   }
@@ -69,7 +66,8 @@ class Counter extends Component {
 // parts it needs from the state object.
 const mapStateToProps = state => {
   return {
-    count: state.count
+    count: state.count,
+    marcus: state.example
   };
 };
 
